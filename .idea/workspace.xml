@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f131eb3-a08b-4ecb-895c-bb19dbbb57ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/BoardGames.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Display.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GomokuBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PuissanceQuatreBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TictactoeBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArtificalPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Representation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WhichGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardGames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardGames.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Display.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TicTacToe.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +24,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -86,7 +85,8 @@
       <workItem from="1671612639018" duration="6613000" />
       <workItem from="1671696036532" duration="12638000" />
       <workItem from="1671714331656" duration="7221000" />
-      <workItem from="1671782778643" duration="19628000" />
+      <workItem from="1671782778643" duration="21650000" />
+      <workItem from="1672646494909" duration="15795000" />
     </task>
     <servers />
   </component>
@@ -109,8 +109,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/TicTacToe.java</url>
-          <line>16</line>
+          <line>10</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/TicTacToe.java</url>
+          <line>233</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BoardGames.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/Display.java</url>
+          <line>2</line>
+          <properties field="instructionAbscisse" class="Display" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

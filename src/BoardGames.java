@@ -9,6 +9,8 @@ public class BoardGames {
     int currentPlayerId = 1;
     private Cell[][] plateau;
 
+    Display display;
+
     Player player1 = new Player("| X ", 1);
     Player player2 = new Player("| O ", 2);
 
@@ -26,18 +28,29 @@ public class BoardGames {
                 this.plateau[i][j] = new Cell();
             }
         }
+        this.display = new Display();
     }
+
+    /** Function which returns the dimensions of the board (array of 2 integers)
+     *
+     * @return
+     */
     public int[] getDimensions(){
         return new int[]{width, height};
     }
 
-//    public void createPlateau(){
-//
-//    }
+    /** Function which returns the board (2D array of objects)
+     *
+     * @return
+     */
     public Cell[][] getPlateau() {
         return this.plateau;
     }
 
+    /** Function which manages who is the current player and return it
+     *
+     * @return
+     */
     public Player getCurrentPlayer(){
         if(currentPlayerId == 1){
             currentPlayerId ++;
@@ -48,60 +61,78 @@ public class BoardGames {
         }
     }
 
+    /** Function which returns gameCounter
+     *
+     * @return
+     */
     public int getGameCounter(){
         return this.gameCounter;
     }
+
+    /** Function which returns the drawCounter
+     *
+     * @return
+     */
     public int getDrawCounter(){
         return this.drawCounter;
     }
+
+    /** Function which increments the gameCounter
+     *
+     */
     public void setGameCounter(){
         this.gameCounter ++;
     }
 
+    /** Function which returns true if the cell is empty
+     *
+     * @param abscisse
+     * @param ordonnee
+     * @return
+     */
     public boolean cellIsEmpty(int abscisse, int ordonnee){
 
         if(plateau[abscisse][ordonnee].representation == "|   " ){
             return true;
         } else {
-            System.out.println("Cette case est déjà prise!");
+            display.display(display.getNotEmptyMessage());
             return false;
         }
-//        Cell[] line = plateau[abscisse];
-//        Cell cell   = line[ordonnee];
-//        String repr = cell.representation;
-//        char c      = repr.charAt(0);
     }
 
+    /** Function which returns the board representation
+     *
+     * @return
+     */
     public String getRepresentation(){
+
         int width = this.width;
         int height = this.height;
         String repr = "";
 
         repr = repr + "     0   1   2\n";
+
         for(int i = 0; i < width; i++){
             repr = repr + "   ";
-//            System.out.println("        " + i +"   ");
             repr = repr + "-------------\n";
             repr = repr + i;
             repr = repr + "  ";
+
             for(int j = 0; j < height; j++){
-
-//                System.out.print(plateau[i][j].getRepresentation());
-                //FIXME tableau inversé pour avoir les coordonnées en abscisse et en ordonnées
                 repr = repr + this.plateau[i][j].getRepresentation();
-//                System.out.print(this.plateau[i][j].getRepresentation());
-
             }
             repr = repr + "|\n";
         }
         repr = repr + "   ";
         repr = repr + "-------------\n";
-//        System.out.print("   ");
-//        System.out.print("-------------");
-//        System.out.println();
         return repr;
     }
 
+    /** Function which returns a row (array of objects)
+     *
+     * @param rowNumber
+     * @return
+     */
     public Cell[] getRow(int rowNumber){
         Cell[] row = new Cell[this.height];
         for(int j = 0; j < this.height; j++){
@@ -110,6 +141,11 @@ public class BoardGames {
         return row;
     }
 
+    /** Function which returns a column (array of objects)
+     *
+     * @param columnNumber
+     * @return
+     */
     public Cell[] getColumn(int columnNumber){
         Cell[] column = new Cell[this.width];
         for(int i = 0 ; i < this.width ; i++){
@@ -119,6 +155,10 @@ public class BoardGames {
 
     }
 
+    /** Function which returns the diagonale from top to bottom (array of objects)
+     *
+     * @return
+     */
     public Cell[] getDiagTopToBottom(){
         int j = 0;
         Cell[] diag = new Cell[this.width];
@@ -129,8 +169,12 @@ public class BoardGames {
         return diag;
     }
 
+    /** Function which returns the diagonale from bottom to top (array of objects)
+     *
+     * @return
+     */
     public Cell[] getDiagBottomToTop(){
-        int j = 2;
+        int j = this.height -1 ;
         Cell[] diag = new Cell[this.width];
         for(int i = 0 ; i < this.width ; i++){
             diag[i] = this.plateau[i][j];
@@ -138,11 +182,4 @@ public class BoardGames {
         }
         return diag;
     }
-
-//    public Cell[] getDiag(){
-//
-//        return null;
-//    }
-
-
 }
