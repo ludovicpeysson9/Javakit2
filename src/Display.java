@@ -6,48 +6,51 @@ public class Display {
 
     private String errorEntier = "RENSEIGNEZ UN ENTIER!";
 
-    private String errorOutOfBounds = "ON A DIT ENTRE ET ";
+    private String errorOutOfBounds = "ON A DIT ENTRE 0 ET ";
     private String winMessage = "Bien joué vous avez gagné! ";
     private String drawMessage = "Match Nul! ";
 
-    private String notEmptyMessage = "Cette case est déjà prise! Rejouez";
+    private String notEmptyMessage = "Cette case est déjà prise! Rejouez mais pas en ";
 
-    private String whichGame = "A quel jeu voulez vous jouer? Entrez 1 pour le Morpions, 2 pour le Gomoku et enfin 3 pour le Puissance 4";
+    private String whichGame = "A quel jeu voulez vous jouer? Entrez 0 pour le Morpions, 1 pour le Gomoku et enfin 2 pour le Puissance 4";
+    private String howManyComputers = "Combien de joueurs controlés par l'ordinateur voulez vous? ";
+
     private String whichPosition = "Quel joueur voulez vous être? Entrez 1 pour être le Joueur 1 ou 2 pour être le Joueur 2";
-    private String whichOpponent = "Si vous voulez que votre adversaire soit l'ordinateur entrez Y";
-
     public void display(String s){
         System.out.println(s);
     }
 
-    public String getInstructionAbscisse(){
-        return this.instructionAbscisse;
+    public void instructionAbscisse(int tailleMaxAbscisse){
+        System.out.println((this.instructionAbscisse + tailleMaxAbscisse));
     }
-    public String getInstructionOrdonnee(){
-        return this.instructionOrdonnee;
+
+    public void instructionOrdonnee(int tailleMaxOrdonnee){
+        System.out.println(this.instructionOrdonnee + tailleMaxOrdonnee);;
     }
-    public String getErrorEntier(){
-        return this.errorEntier;
+    public void errorEntier(){
+        System.out.println(errorEntier);
     }
-    public String getErrorOutOfBounds(){
-        return this.errorOutOfBounds;
+
+    public void errorOutOfBounds(int tailleMax){
+        System.out.println(errorOutOfBounds + tailleMax + "!!!");
     }
-    public String getWinMessage(){
-        return this.winMessage;
+
+    public void winMessage(){
+        System.out.println(this.winMessage);
     }
-    public String getDrawMessage(){
-        return this.drawMessage;
+    public void drawMessage(){
+        System.out.println(this.drawMessage);
     }
-    public String getNotEmptyMessage(){
-        return this.notEmptyMessage;
+    public void notEmptyMessage(int abscisse, int ordonnee){
+        System.out.println(this.notEmptyMessage + abscisse + " | " + ordonnee);
     }
-    public  String getWhichGame(){
-        return this.whichGame;
+    public void whichGame(){
+        System.out.println(this.whichGame);
     }
-    public  String getWhichPosition(){
-        return this.whichPosition;
+    public void howManyComputers(){
+        System.out.println(this.howManyComputers);
     }
-    public  String getWhichOpponent(){
-        return this.whichOpponent;
+    public void whichPosition(){
+        System.out.println(this.whichPosition);
     }
 }

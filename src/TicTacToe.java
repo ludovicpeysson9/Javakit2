@@ -29,39 +29,56 @@ public class TicTacToe {
         return new int[]{goodCoordX, goodCoordY};
      }
 
+    public int[] getMoveFromComputer(){
+        boolean available = false;
+        int goodCoordX = -1;
+        int goodCoordY = -1;
+        while(!available){
+            int[]coords = getCoordsOfComputer();
+            available = boardGames.cellIsEmptyComputer(coords[0], coords[1]);
+            goodCoordX = coords[0];
+            goodCoordY = coords[1];
+        }
+        return new int[]{goodCoordX,goodCoordY};
+    }
+    public int[] getCoordsOfComputer(){
+        int x = (int) ((Math.random() * (2-0)) + 0);
+        int y = (int) ((Math.random() * (2-0)) + 0);
+        return new int[]{y,x};
+    }
     /** Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
      *
      * @return
      */
-    public int[] getCoordsWithinBounds() { //TODO rajouter le message pour les coordonnees entre 0 et 2 et tester le tout
+    public int[] getCoordsWithinBounds() {
         int x = -1;
         int y = -1;
         int tailleMaxAbscisse = boardGames.getDimensions()[0] - 1;
         int tailleMaxOrdonnee = boardGames.getDimensions()[1] - 1;
 
         while (x < 0 || x > tailleMaxAbscisse) {
-            display.display(display.getInstructionAbscisse() + tailleMaxAbscisse);
+            display.instructionAbscisse(tailleMaxAbscisse);
             if (scanner.hasNextInt()) {
                 x = scanner.nextInt();
             } else {
-                display.display(display.getErrorEntier());
+                display.errorEntier();
                 scanner.next();
             }
-            if(x < 0 || x > tailleMaxAbscisse){
-                display.display(display.getErrorOutOfBounds() + tailleMaxAbscisse + "!!!");
+            if(x != -1 && (x < 0 || x > tailleMaxAbscisse)){
+                display.errorOutOfBounds(tailleMaxAbscisse);
             }
         }
         while (y < 0 || y > tailleMaxOrdonnee) {
-            display.display(display.getInstructionOrdonnee() + tailleMaxOrdonnee);
+            display.instructionOrdonnee(tailleMaxOrdonnee);
 
             if (scanner.hasNextInt()) {
                 y = scanner.nextInt();
             } else {
-                display.display(display.getErrorEntier());
+                display.errorEntier();
                 scanner.next();
             }
-            if(y < 0 || y > tailleMaxOrdonnee){
-                display.display(display.getErrorOutOfBounds() + tailleMaxOrdonnee + "!!!");
+            if(y != -1 && (y < 0 || y > tailleMaxOrdonnee)){
+                display.errorOutOfBounds(tailleMaxOrdonnee);
             }
         }
         return new int[]{y, x};
@@ -82,10 +99,14 @@ public class TicTacToe {
      */
     public void tourJoueur(){
         Player currentPlayer = boardGames.getCurrentPlayer();
-        int[] coordonneesDuJoueur;
+        int[] coordonnees;
         display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
-        coordonneesDuJoueur = getMoveFromPlayer();
-        capture(currentPlayer, coordonneesDuJoueur[0], coordonneesDuJoueur[1]);
+        if(currentPlayer.isHuman == false){
+            coordonnees = getMoveFromComputer();
+        }else{
+            coordonnees = getMoveFromPlayer();
+        }
+        capture(currentPlayer, coordonnees[0], coordonnees[1]);
 
         display.display(boardGames.getRepresentation());
     }
@@ -242,11 +263,11 @@ public class TicTacToe {
             partieFinie = isOver(boardGames.getGameCounter(), boardGames.getDrawCounter());
 
             if(partieGagnee){
-                display.display(display.getWinMessage());
+                display.winMessage();
                 return;
             }
             if(partieFinie){
-                display.display(display.getDrawMessage());
+                display.drawMessage();
                 return;
             }
         }

@@ -10,9 +10,13 @@ public class BoardGames {
     private Cell[][] plateau;
 
     Display display;
+    Menu menu;
 
-    Player player1 = new Player("| X ", 1);
-    Player player2 = new Player("| O ", 2);
+//    Player player1 = new Player("| X ", 1);
+//    Player player2 = new Player("| O ", 2);
+
+    Player player1;
+    Player player2;
 
     public BoardGames(){
         this(3,3);
@@ -29,6 +33,22 @@ public class BoardGames {
             }
         }
         this.display = new Display();
+    }
+
+    public void setPlayers(int howManyComputers, int whichPosition){
+        if(howManyComputers == 2){
+            Player player1 = new ArtificialPlayer( "| X ", 1);
+            Player player2 = new ArtificialPlayer("| O ", 2);
+        }
+        if(howManyComputers == 1){
+            if(whichPosition == 1){
+                Player player1 = new Player("| X ", 1);
+                Player player2 = new ArtificialPlayer( "| O ", 2);
+            }else if (whichPosition == 2){
+                Player player1 = new ArtificialPlayer( "| X ", 1);
+                Player player2 = new Player("| O ", 2);
+            }
+        }
     }
 
     /** Function which returns the dimensions of the board (array of 2 integers)
@@ -95,7 +115,15 @@ public class BoardGames {
         if(plateau[abscisse][ordonnee].representation == "|   " ){
             return true;
         } else {
-            display.display(display.getNotEmptyMessage());
+            display.notEmptyMessage(abscisse, ordonnee);
+            return false;
+        }
+    }
+    public boolean cellIsEmptyComputer(int abscisse, int ordonnee){
+
+        if(plateau[abscisse][ordonnee].representation == "|   " ){
+            return true;
+        } else {
             return false;
         }
     }
