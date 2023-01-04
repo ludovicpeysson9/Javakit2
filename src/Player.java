@@ -1,3 +1,4 @@
+//package model;
 public class Player {
     private String representation;
     private int identity;

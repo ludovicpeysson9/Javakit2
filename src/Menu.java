@@ -1,3 +1,4 @@
+//package controller;
 import java.util.Scanner;
 
 public class Menu {
@@ -61,13 +62,45 @@ public class Menu {
             }
             if (whichPosition != -1 && (whichPosition < 0 || whichPosition > maxLimitGameComputerPlayer)){
                 display.errorOutOfBounds(maxLimitGameComputerPlayer);
+                whichPosition =-1;
             }
         }
     }
 
-    public int[] menu(){
-        menuChoice();
-        return new int[]{this.whichGame, this.howManyComputers, this.whichPosition};
-        //TODO init game
+    public Tuple<Player,Player> createPlayer(int howManyComputers, int whichPosition){
+        Player player1 = new Player("| X ", 1);;
+        Player player2 = new Player("| O ", 2);
+        if(howManyComputers >= 2){
+            player1 = new ArtificialPlayer( "| X ", 1);
+            player2 = new ArtificialPlayer("| O ", 2);
+        }
+        if(howManyComputers == 1){
+            if(whichPosition == 1){
+                player2 = new ArtificialPlayer( "| O ", 2);
+            }else if (whichPosition == 2){
+                player1 = new ArtificialPlayer( "| X ", 1);
+            }
+        }
+        return new Tuple<Player, Player>(player1, player2);
     }
+
+    public void createGame(){
+        if(whichGame == 0){
+            TicTacToe ticTacToe = new TicTacToe(createPlayer(howManyComputers, whichPosition));
+            ticTacToe.deroulementPartie();
+        }
+        if(whichGame == 1){
+            Gomoku gomoku = new Gomoku(createPlayer(howManyComputers, whichPosition));
+            gomoku.deroulementPartie();
+        }
+        if(whichGame == 2){
+            Puissance4 puissance4 = new Puissance4(createPlayer(howManyComputers, whichPosition));
+//            puissance4.deroulementPartie();
+        }
+    }
+    public void startGame(){
+        menuChoice();
+        createGame();
+    }
+
 }

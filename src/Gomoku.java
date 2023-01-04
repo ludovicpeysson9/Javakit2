@@ -1,23 +1,21 @@
-//package controller;
+//package controller
 import java.util.Scanner;
-
-public class TicTacToe {
+public class Gomoku {
     Scanner scanner;
     BoardGames boardGames;
-
     Display display;
-    public TicTacToe(){
-        this.boardGames = new TictactoeBoard();
+    public Gomoku(){
+        this.boardGames = new GomokuBoard();
         this.scanner = new Scanner(System.in);
         this.display = new Display();
     }
-    public TicTacToe(Player p1, Player p2){
-        this.boardGames = new TictactoeBoard(p1, p2);
+    public Gomoku(Player p1, Player p2){
+        this.boardGames = new GomokuBoard(p1, p2);
         this.scanner = new Scanner(System.in);
         this.display = new Display();
     }
-    public TicTacToe(Tuple<Player,Player> players){
-        this.boardGames = new TictactoeBoard(players.x, players.y);
+    public Gomoku(Tuple<Player,Player> players){
+        this.boardGames = new GomokuBoard(players.x, players.y);
         this.scanner = new Scanner(System.in);
         this.display = new Display();
     }
@@ -37,7 +35,7 @@ public class TicTacToe {
             goodCoordY = coords[1];
         }
         return new int[]{goodCoordX, goodCoordY};
-     }
+    }
 
     public int[] getMoveFromComputer(){
         boolean available = false;
@@ -52,8 +50,8 @@ public class TicTacToe {
         return new int[]{goodCoordX,goodCoordY};
     }
     public int[] getCoordsOfComputer(){
-        int x = (int) ((Math.random() * (3-0)) + 0);
-        int y = (int) ((Math.random() * (3-0)) + 0);
+        int x = (int) ((Math.random() * (5-0)) + 0);
+        int y = (int) ((Math.random() * (5-0)) + 0);
         return new int[]{y,x};
     }
     /** Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
@@ -278,4 +276,3 @@ public class TicTacToe {
         }
     }
 }
-

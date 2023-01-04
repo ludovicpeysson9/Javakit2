@@ -1,3 +1,5 @@
+//package model;
+
 public class BoardGames {
 
     private int width;
@@ -7,13 +9,10 @@ public class BoardGames {
 
     int gameCounter = 0;
     int currentPlayerId = 1;
-    private Cell[][] plateau;
 
-    Display display;
     Menu menu;
-
-//    Player player1 = new Player("| X ", 1);
-//    Player player2 = new Player("| O ", 2);
+    Display display;
+    private Cell[][] plateau;
 
     Player player1;
     Player player2;
@@ -35,20 +34,15 @@ public class BoardGames {
         this.display = new Display();
     }
 
-    public void setPlayers(int howManyComputers, int whichPosition){
-        if(howManyComputers == 2){
-            Player player1 = new ArtificialPlayer( "| X ", 1);
-            Player player2 = new ArtificialPlayer("| O ", 2);
-        }
-        if(howManyComputers == 1){
-            if(whichPosition == 1){
-                Player player1 = new Player("| X ", 1);
-                Player player2 = new ArtificialPlayer( "| O ", 2);
-            }else if (whichPosition == 2){
-                Player player1 = new ArtificialPlayer( "| X ", 1);
-                Player player2 = new Player("| O ", 2);
-            }
-        }
+    public BoardGames(Player p1, Player p2, int width, int height){
+        this(width, height);
+        this.player1 = p1;
+        this.player2 = p2;
+    }
+    public BoardGames(Player p1, Player p2){
+        this();
+        this.player1 = p1;
+        this.player2 = p2;
     }
 
     /** Function which returns the dimensions of the board (array of 2 integers)
@@ -137,12 +131,18 @@ public class BoardGames {
         int width = this.width;
         int height = this.height;
         String repr = "";
+        String separator ="----";
 
-        repr = repr + "     0   1   2\n";
-
+        repr = repr + "     ";
+        for(int k = 0; k < width; k++){
+            repr = repr + k+"   ";
+        }
+        repr = repr +"\n";
         for(int i = 0; i < width; i++){
             repr = repr + "   ";
-            repr = repr + "-------------\n";
+//            repr = repr + "-------------\n";
+
+            repr = repr + "-" + separator.repeat(width) + "\n";
             repr = repr + i;
             repr = repr + "  ";
 
@@ -152,7 +152,7 @@ public class BoardGames {
             repr = repr + "|\n";
         }
         repr = repr + "   ";
-        repr = repr + "-------------\n";
+        repr = repr + separator.repeat(width)+ "\n";
         return repr;
     }
 

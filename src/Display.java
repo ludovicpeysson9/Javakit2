@@ -1,3 +1,5 @@
+//package view;
+
 public class Display {
     //TODO Faire en sorte que la view gère toutes les interactions avec l'utilisateur (scanner) mais pas la logique.
     private String instructionAbscisse = "Entrez l'abscisse de la case libre ciblée sous forme d'entier entre 0 et ";
