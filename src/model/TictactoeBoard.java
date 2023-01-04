@@ -1,5 +1,9 @@
+package model;
+
+import model.BoardGames;
+
 //package model;
-public class TictactoeBoard extends BoardGames{
+public class TictactoeBoard extends BoardGames {
         public TictactoeBoard() {
             super();
     }

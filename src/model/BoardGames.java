@@ -1,4 +1,7 @@
-//package model;
+package model;
+import view.Display;
+
+import controller.Menu;
 
 public class BoardGames {
 

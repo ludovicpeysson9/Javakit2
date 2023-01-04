@@ -1,4 +1,10 @@
-//package controller;
+package controller;//package controller;
+import model.BoardGames;
+import model.Cell;
+import model.Player;
+import model.TictactoeBoard;
+import view.Display;
+import util.Tuple;
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -16,7 +22,7 @@ public class TicTacToe {
         this.scanner = new Scanner(System.in);
         this.display = new Display();
     }
-    public TicTacToe(Tuple<Player,Player> players){
+    public TicTacToe(Tuple<Player, Player> players){
         this.boardGames = new TictactoeBoard(players.x, players.y);
         this.scanner = new Scanner(System.in);
         this.display = new Display();
@@ -94,14 +100,14 @@ public class TicTacToe {
         return new int[]{y, x};
     }
 
-    /** Function changing a cell representation by a Player's one
+    /** Function changing a cell representation by a model.Player's one
      *
      * @param player
      * @param abscisse
      * @param ordonnee
      */
     public void capture(Player player, int abscisse, int ordonnee){
-        boardGames.getPlateau()[abscisse][ordonnee].representation = player.getRepresentation();
+        boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
     }
 
     /** Function to define the turn of a player
@@ -111,7 +117,7 @@ public class TicTacToe {
         Player currentPlayer = boardGames.getCurrentPlayer();
         int[] coordonnees;
         display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
-        if(currentPlayer.isHuman == false){
+        if(currentPlayer.getHuman() == false){
             coordonnees = getMoveFromComputer();
         }else{
             coordonnees = getMoveFromPlayer();

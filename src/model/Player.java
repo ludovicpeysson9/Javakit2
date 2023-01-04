@@ -1,3 +1,5 @@
+package model;
+
 //package model;
 public class Player {
     private String representation;
@@ -18,7 +20,7 @@ public class Player {
         return this.identity;
     }
 
-    public boolean isHuman() {
+    public boolean getHuman() {
         return isHuman;
     }
 }

@@ -1,4 +1,9 @@
-//package controller
+package controller;//package controller
+import model.BoardGames;
+import model.Player;
+import model.PuissanceQuatreBoard;
+import view.Display;
+import util.Tuple;
 import java.util.Scanner;
 public class Puissance4{
     Scanner scanner;
@@ -89,13 +94,13 @@ public class Puissance4{
 //        }
 //        return new int[]{y, x};
 //    }
-//    /** Function changing a cell representation by a Player's one
+//    /** Function changing a cell representation by a model.Player's one
 //     *
 //     * @param player
 //     * @param abscisse
 //     * @param ordonnee
 //     */
-//    public void capture(Player player, int abscisse, int ordonnee){
+//    public void capture(model.Player player, int abscisse, int ordonnee){
 //        boardGames.getPlateau()[abscisse][ordonnee].representation = player.getRepresentation();
 //    }
 //
@@ -103,7 +108,7 @@ public class Puissance4{
 //     *
 //     */
 //    public void tourJoueur(){
-//        Player currentPlayer = boardGames.getCurrentPlayer();
+//        model.Player currentPlayer = boardGames.getCurrentPlayer();
 //        int[] coordonnees;
 //        display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
 //        if(currentPlayer.isHuman == false){
@@ -137,14 +142,14 @@ public class Puissance4{
 //     * @param row
 //     * @return
 //     */
-//    public boolean checkRow(Cell[] row){
+//    public boolean checkRow(model.Cell[] row){
 //        String potentialWinner = row[0].getRepresentation();
-//        for(Cell cell : row){
+//        for(model.Cell cell : row){
 //            if(cell.getRepresentation().equals("|   ")){
 //                return false;
 //            }
 //        }
-//        for(Cell cell: row){
+//        for(model.Cell cell: row){
 //            if(potentialWinner != cell.getRepresentation()){
 //                return false;
 //            }
@@ -157,14 +162,14 @@ public class Puissance4{
 //     * @param column
 //     * @return
 //     */
-//    public boolean checkColumn(Cell[] column){
+//    public boolean checkColumn(model.Cell[] column){
 //        String potentialWinner = column[0].getRepresentation();
-//        for(Cell cell : column){
+//        for(model.Cell cell : column){
 //            if(cell.getRepresentation().equals("|   ")){
 //                return false;
 //            }
 //        }
-//        for(Cell cell: column){
+//        for(model.Cell cell: column){
 //            if(potentialWinner != cell.getRepresentation()){
 //                return false;
 //            }
@@ -177,14 +182,14 @@ public class Puissance4{
 //     * @param DiagTopToBottom
 //     * @return
 //     */
-//    public boolean checkDiagTopToBottom(Cell[] DiagTopToBottom){
+//    public boolean checkDiagTopToBottom(model.Cell[] DiagTopToBottom){
 //        String potentialWinner = DiagTopToBottom[0].getRepresentation();
-//        for(Cell cell : DiagTopToBottom){
+//        for(model.Cell cell : DiagTopToBottom){
 //            if(cell.getRepresentation().equals("|   ")){
 //                return false;
 //            }
 //        }
-//        for(Cell cell : DiagTopToBottom){
+//        for(model.Cell cell : DiagTopToBottom){
 //            if(potentialWinner != cell.getRepresentation()){
 //                return false;
 //            }
@@ -197,14 +202,14 @@ public class Puissance4{
 //     * @param DiagBottomToTop
 //     * @return
 //     */
-//    public boolean checkDiagBottomToTop(Cell[] DiagBottomToTop){
+//    public boolean checkDiagBottomToTop(model.Cell[] DiagBottomToTop){
 //        String potentialWinner = DiagBottomToTop[0].getRepresentation();
-//        for(Cell cell : DiagBottomToTop){
+//        for(model.Cell cell : DiagBottomToTop){
 //            if(cell.getRepresentation() == "|   "){
 //                return false;
 //            }
 //        }
-//        for(Cell cell : DiagBottomToTop){
+//        for(model.Cell cell : DiagBottomToTop){
 //            if(potentialWinner != cell.getRepresentation()){
 //                return false;
 //            }

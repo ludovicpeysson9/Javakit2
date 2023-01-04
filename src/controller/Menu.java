@@ -1,5 +1,9 @@
-//package controller;
+package controller;
 import java.util.Scanner;
+import view.Display;
+import model.Player;
+import model.ArtificialPlayer;
+import util.Tuple;
 
 public class Menu {
     Scanner scanner;
@@ -67,7 +71,7 @@ public class Menu {
         }
     }
 
-    public Tuple<Player,Player> createPlayer(int howManyComputers, int whichPosition){
+    public Tuple<Player, Player> createPlayer(int howManyComputers, int whichPosition){
         Player player1 = new Player("| X ", 1);;
         Player player2 = new Player("| O ", 2);
         if(howManyComputers >= 2){

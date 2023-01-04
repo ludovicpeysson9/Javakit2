@@ -1,5 +1,9 @@
+package model;
+
+import model.BoardGames;
+
 //package model;
-public class GomokuBoard extends BoardGames{
+public class GomokuBoard extends BoardGames {
 
     public GomokuBoard(){
         super (5, 5);

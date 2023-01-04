@@ -1,5 +1,9 @@
+package model;
+
+import model.BoardGames;
+
 //package model;
-public class PuissanceQuatreBoard extends BoardGames{
+public class PuissanceQuatreBoard extends BoardGames {
 
     public PuissanceQuatreBoard(){
         super (7, 6);
