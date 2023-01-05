@@ -1,9 +1,8 @@
-import controller.Menu;
-import controller.Puissance4;
+import controller.MenuController;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        MenuController menu = new MenuController();
         menu.startGame();
 //        Puissance4 p4 = new Puissance4();
 //        p4.displayp4();

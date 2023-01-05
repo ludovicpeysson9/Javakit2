@@ -1,19 +1,19 @@
 package controller;
 import java.util.Scanner;
-import view.Display;
-import model.Player;
-import model.ArtificialPlayer;
-import util.Tuple;
+import view.DisplayView;
+import model.PlayerModel;
+import model.ArtificialPlayerModel;
+import util.TupleUtil;
 
-public class Menu {
+public class MenuController implements GameControllerInterface {
     Scanner scanner;
-    Display display = new Display();
+    DisplayView display = new DisplayView();
     private int maxLimitGameComputerPlayer = 2;
     private int whichGame = -1;
     private int howManyComputers = -1;
     private int whichPosition = -1;
 
-    public Menu(){
+    public MenuController(){
         this.scanner = new Scanner(System.in);
     }
 
@@ -71,34 +71,34 @@ public class Menu {
         }
     }
 
-    public Tuple<Player, Player> createPlayer(int howManyComputers, int whichPosition){
-        Player player1 = new Player("| X ", 1);;
-        Player player2 = new Player("| O ", 2);
+    public TupleUtil<PlayerModel, PlayerModel> createPlayer(int howManyComputers, int whichPosition){
+        PlayerModel player1 = new PlayerModel("| X ", 1);;
+        PlayerModel player2 = new PlayerModel("| O ", 2);
         if(howManyComputers >= 2){
-            player1 = new ArtificialPlayer( "| X ", 1);
-            player2 = new ArtificialPlayer("| O ", 2);
+            player1 = new ArtificialPlayerModel( "| X ", 1);
+            player2 = new ArtificialPlayerModel("| O ", 2);
         }
         if(howManyComputers == 1){
             if(whichPosition == 1){
-                player2 = new ArtificialPlayer( "| O ", 2);
+                player2 = new ArtificialPlayerModel( "| O ", 2);
             }else if (whichPosition == 2){
-                player1 = new ArtificialPlayer( "| X ", 1);
+                player1 = new ArtificialPlayerModel( "| X ", 1);
             }
         }
-        return new Tuple<Player, Player>(player1, player2);
+        return new TupleUtil<PlayerModel, PlayerModel>(player1, player2);
     }
 
     public void createGame(){
         if(whichGame == 0){
-            TicTacToe ticTacToe = new TicTacToe(createPlayer(howManyComputers, whichPosition));
+            TicTacToeController ticTacToe = new TicTacToeController(createPlayer(howManyComputers, whichPosition));
             ticTacToe.deroulementPartie();
         }
         if(whichGame == 1){
-            Gomoku gomoku = new Gomoku(createPlayer(howManyComputers, whichPosition));
+            GomokuController gomoku = new GomokuController(createPlayer(howManyComputers, whichPosition));
             gomoku.deroulementPartie();
         }
         if(whichGame == 2){
-            Puissance4 puissance4 = new Puissance4(createPlayer(howManyComputers, whichPosition));
+            Puissance4Controller puissance4 = new Puissance4Controller(createPlayer(howManyComputers, whichPosition));
 //            puissance4.deroulementPartie();
         }
     }

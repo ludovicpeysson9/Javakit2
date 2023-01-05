@@ -1,9 +1,9 @@
 package model;
-import view.Display;
+import view.DisplayView;
 
-import controller.Menu;
+import controller.MenuController;
 
-public class BoardGames {
+public class BoardGamesModel {
 
     private int width;
     private int height;
@@ -13,36 +13,36 @@ public class BoardGames {
     int gameCounter = 0;
     int currentPlayerId = 1;
 
-    Menu menu;
-    Display display;
-    private Cell[][] plateau;
+    MenuController menu;
+    DisplayView display;
+    private CellModel[][] plateau;
 
-    Player player1;
-    Player player2;
+    PlayerModel player1;
+    PlayerModel player2;
 
-    public BoardGames(){
+    public BoardGamesModel(){
         this(3,3);
     }
 
-    public BoardGames(int width, int height){
+    public BoardGamesModel(int width, int height){
         this.width = width;
         this.height = height;
         this.drawCounter = width*height;
-        this.plateau = new Cell[width][height];
+        this.plateau = new CellModel[width][height];
         for (int i = 0; i < width; i++){
             for (int j = 0; j < height; j++){
-                this.plateau[i][j] = new Cell();
+                this.plateau[i][j] = new CellModel();
             }
         }
-        this.display = new Display();
+        this.display = new DisplayView();
     }
 
-    public BoardGames(Player p1, Player p2, int width, int height){
+    public BoardGamesModel(PlayerModel p1, PlayerModel p2, int width, int height){
         this(width, height);
         this.player1 = p1;
         this.player2 = p2;
     }
-    public BoardGames(Player p1, Player p2){
+    public BoardGamesModel(PlayerModel p1, PlayerModel p2){
         this();
         this.player1 = p1;
         this.player2 = p2;
@@ -60,7 +60,7 @@ public class BoardGames {
      *
      * @return
      */
-    public Cell[][] getPlateau() {
+    public CellModel[][] getPlateau() {
         return this.plateau;
     }
 
@@ -68,7 +68,7 @@ public class BoardGames {
      *
      * @return
      */
-    public Player getCurrentPlayer(){
+    public PlayerModel getCurrentPlayer(){
         if(currentPlayerId == 1){
             currentPlayerId ++;
             return player1;
@@ -164,8 +164,8 @@ public class BoardGames {
      * @param rowNumber
      * @return
      */
-    public Cell[] getRow(int rowNumber){
-        Cell[] row = new Cell[this.height];
+    public CellModel[] getRow(int rowNumber){
+        CellModel[] row = new CellModel[this.height];
         for(int j = 0; j < this.height; j++){
             row[j] = this.plateau[rowNumber][j];
         }
@@ -177,8 +177,8 @@ public class BoardGames {
      * @param columnNumber
      * @return
      */
-    public Cell[] getColumn(int columnNumber){
-        Cell[] column = new Cell[this.width];
+    public CellModel[] getColumn(int columnNumber){
+        CellModel[] column = new CellModel[this.width];
         for(int i = 0 ; i < this.width ; i++){
             column[i] = this.plateau[i][columnNumber];
         }
@@ -190,9 +190,9 @@ public class BoardGames {
      *
      * @return
      */
-    public Cell[] getDiagTopToBottom(){
+    public CellModel[] getDiagTopToBottom(){
         int j = 0;
-        Cell[] diag = new Cell[this.width];
+        CellModel[] diag = new CellModel[this.width];
         for(int i = 0 ; i < this.width ; i++){
             diag[i] = this.plateau[i][j];
             j++;
@@ -204,9 +204,9 @@ public class BoardGames {
      *
      * @return
      */
-    public Cell[] getDiagBottomToTop(){
+    public CellModel[] getDiagBottomToTop(){
         int j = this.height -1 ;
-        Cell[] diag = new Cell[this.width];
+        CellModel[] diag = new CellModel[this.width];
         for(int i = 0 ; i < this.width ; i++){
             diag[i] = this.plateau[i][j];
             j--;

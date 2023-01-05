@@ -1,12 +1,12 @@
 package model;
 
 //package model;
-public class Player {
+public class PlayerModel {
     private String representation;
     private int identity;
 
     protected boolean isHuman;
-    public Player(String representation, int identity){
+    public PlayerModel(String representation, int identity){
 
         this.representation = representation;
         this.identity = identity;

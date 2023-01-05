@@ -1,28 +1,28 @@
 package controller;//package controller
-import model.BoardGames;
-import model.Player;
-import model.PuissanceQuatreBoard;
-import view.Display;
-import util.Tuple;
+import model.BoardGamesModel;
+import model.PlayerModel;
+import model.PuissanceQuatreBoardModel;
+import view.DisplayView;
+import util.TupleUtil;
 import java.util.Scanner;
-public class Puissance4{
+public class Puissance4Controller {
     Scanner scanner;
-    BoardGames boardGames;
-    Display display;
-    public Puissance4(){
-        this.boardGames = new PuissanceQuatreBoard();
+    BoardGamesModel boardGames;
+    DisplayView display;
+    public Puissance4Controller(){
+        this.boardGames = new PuissanceQuatreBoardModel();
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public Puissance4(Player p1, Player p2){
-        this.boardGames = new PuissanceQuatreBoard(p1, p2);
+    public Puissance4Controller(PlayerModel p1, PlayerModel p2){
+        this.boardGames = new PuissanceQuatreBoardModel(p1, p2);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public Puissance4(Tuple<Player,Player> players){
-        this.boardGames = new PuissanceQuatreBoard(players.x, players.y);
+    public Puissance4Controller(TupleUtil<PlayerModel, PlayerModel> players){
+        this.boardGames = new PuissanceQuatreBoardModel(players.x, players.y);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
 
     public void displayp4(){

@@ -1,29 +1,29 @@
 package controller;//package controller
-import model.BoardGames;
-import model.GomokuBoard;
-import model.Player;
-import model.Cell;
-import view.Display;
-import util.Tuple;
+import model.BoardGamesModel;
+import model.GomokuBoardModel;
+import model.PlayerModel;
+import model.CellModel;
+import view.DisplayView;
+import util.TupleUtil;
 import java.util.Scanner;
-public class Gomoku {
+public class GomokuController {
     Scanner scanner;
-    BoardGames boardGames;
-    Display display;
-    public Gomoku(){
-        this.boardGames = new GomokuBoard();
+    BoardGamesModel boardGames;
+    DisplayView display;
+    public GomokuController(){
+        this.boardGames = new GomokuBoardModel();
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public Gomoku(Player p1, Player p2){
-        this.boardGames = new GomokuBoard(p1, p2);
+    public GomokuController(PlayerModel p1, PlayerModel p2){
+        this.boardGames = new GomokuBoardModel(p1, p2);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public Gomoku(Tuple<Player, Player> players){
-        this.boardGames = new GomokuBoard(players.x, players.y);
+    public GomokuController(TupleUtil<PlayerModel, PlayerModel> players){
+        this.boardGames = new GomokuBoardModel(players.x, players.y);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
 
     /** Function to get verified coords from player. Return an array of 2 integers
@@ -56,8 +56,8 @@ public class Gomoku {
         return new int[]{goodCoordX,goodCoordY};
     }
     public int[] getCoordsOfComputer(){
-        int x = (int) ((Math.random() * (5-0)) + 0);
-        int y = (int) ((Math.random() * (5-0)) + 0);
+        int x = (int) ((Math.random() * (15-0)) + 0);
+        int y = (int) ((Math.random() * (15-0)) + 0);
         return new int[]{y,x};
     }
     /** Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
@@ -104,7 +104,7 @@ public class Gomoku {
      * @param abscisse
      * @param ordonnee
      */
-    public void capture(Player player, int abscisse, int ordonnee){
+    public void capture(PlayerModel player, int abscisse, int ordonnee){
         boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
     }
 
@@ -112,7 +112,7 @@ public class Gomoku {
      *
      */
     public void tourJoueur(){
-        Player currentPlayer = boardGames.getCurrentPlayer();
+        PlayerModel currentPlayer = boardGames.getCurrentPlayer();
         int[] coordonnees;
         display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
         if(currentPlayer.getHuman() == false){
@@ -147,19 +147,35 @@ public class Gomoku {
      * @param row
      * @return
      */
-    public boolean checkRow(Cell[] row){
-        String potentialWinner = row[0].getRepresentation();
-        for(Cell cell : row){
-            if(cell.getRepresentation().equals("|   ")){
-                return false;
-            }
+//    public boolean checkRow(Cell[] row){
+//        String potentialWinner = row[0].getRepresentation();
+//        for(Cell cell : row){
+//            if(cell.getRepresentation().equals("|   ")){
+//                return false;
+//            }
+//        }
+//        for(Cell cell: row){
+//            if(potentialWinner != cell.getRepresentation()){
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+    public boolean checkRow(CellModel[] row){
+
+        for(int i = 0; i < 10; i++){
+            String potentialWinner = row[i].getRepresentation();
+            for(int j = i; j < i+5 ; j++){
+                if(potentialWinner.equals("|   ")){
+                    return false;
+                }
+                if (potentialWinner != row[j].getRepresentation()){
+                    return false;
+                }
+            }return true;
         }
-        for(Cell cell: row){
-            if(potentialWinner != cell.getRepresentation()){
-                return false;
-            }
-        }
-        return true;
+        return false;
     }
 
     /** Function to check if a column is winning. Return a boolean
@@ -167,14 +183,14 @@ public class Gomoku {
      * @param column
      * @return
      */
-    public boolean checkColumn(Cell[] column){
+    public boolean checkColumn(CellModel[] column){
         String potentialWinner = column[0].getRepresentation();
-        for(Cell cell : column){
+        for(CellModel cell : column){
             if(cell.getRepresentation().equals("|   ")){
                 return false;
             }
         }
-        for(Cell cell: column){
+        for(CellModel cell: column){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -187,14 +203,14 @@ public class Gomoku {
      * @param DiagTopToBottom
      * @return
      */
-    public boolean checkDiagTopToBottom(Cell[] DiagTopToBottom){
+    public boolean checkDiagTopToBottom(CellModel[] DiagTopToBottom){
         String potentialWinner = DiagTopToBottom[0].getRepresentation();
-        for(Cell cell : DiagTopToBottom){
+        for(CellModel cell : DiagTopToBottom){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(Cell cell : DiagTopToBottom){
+        for(CellModel cell : DiagTopToBottom){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -207,14 +223,14 @@ public class Gomoku {
      * @param DiagBottomToTop
      * @return
      */
-    public boolean checkDiagBottomToTop(Cell[] DiagBottomToTop){
+    public boolean checkDiagBottomToTop(CellModel[] DiagBottomToTop){
         String potentialWinner = DiagBottomToTop[0].getRepresentation();
-        for(Cell cell : DiagBottomToTop){
+        for(CellModel cell : DiagBottomToTop){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(Cell cell : DiagBottomToTop){
+        for(CellModel cell : DiagBottomToTop){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -277,7 +293,7 @@ public class Gomoku {
         if(partieGagnee){
             display.winMessage();
         }
-        if(partieFinie){
+        if(partieFinie && !partieGagnee){
             display.drawMessage();
         }
     }

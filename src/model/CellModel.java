@@ -1,7 +1,7 @@
 package model;
 
 //package model;
-public class Cell {
+public class CellModel {
     String representation = "|   ";
 
     public String getRepresentation(){

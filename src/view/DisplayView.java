@@ -1,6 +1,6 @@
 package view;//package view;
 
-public class Display {
+public class DisplayView {
     //TODO Faire en sorte que la view gère toutes les interactions avec l'utilisateur (scanner) mais pas la logique.
     private String instructionAbscisse = "Entrez l'abscisse de la case libre ciblée sous forme d'entier entre 0 et ";
 
@@ -14,7 +14,7 @@ public class Display {
 
     private String notEmptyMessage = "Cette case est déjà prise! Rejouez mais pas en ";
 
-    private String whichGame = "A quel jeu voulez vous jouer? Entrez 0 pour le Morpions, 1 pour le controller.Gomoku et enfin 2 pour le Puissance 4";
+    private String whichGame = "A quel jeu voulez vous jouer? Entrez 0 pour le Morpions, 1 pour le Gomoku et enfin 2 pour le Puissance 4";
     private String howManyComputers = "Combien de joueurs controlés par l'ordinateur voulez vous? ";
 
     private String whichPosition = "Quel joueur voulez vous être? Entrez 1 pour être le Joueur 1 ou 2 pour être le Joueur 2";

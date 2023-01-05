@@ -1,31 +1,31 @@
 package controller;//package controller;
-import model.BoardGames;
-import model.Cell;
-import model.Player;
-import model.TictactoeBoard;
-import view.Display;
-import util.Tuple;
+import model.BoardGamesModel;
+import model.CellModel;
+import model.PlayerModel;
+import model.TictactoeBoardModel;
+import view.DisplayView;
+import util.TupleUtil;
 import java.util.Scanner;
 
-public class TicTacToe {
+public class TicTacToeController {
     Scanner scanner;
-    BoardGames boardGames;
+    BoardGamesModel boardGames;
 
-    Display display;
-    public TicTacToe(){
-        this.boardGames = new TictactoeBoard();
+    DisplayView display;
+    public TicTacToeController(){
+        this.boardGames = new TictactoeBoardModel();
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public TicTacToe(Player p1, Player p2){
-        this.boardGames = new TictactoeBoard(p1, p2);
+    public TicTacToeController(PlayerModel p1, PlayerModel p2){
+        this.boardGames = new TictactoeBoardModel(p1, p2);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
-    public TicTacToe(Tuple<Player, Player> players){
-        this.boardGames = new TictactoeBoard(players.x, players.y);
+    public TicTacToeController(TupleUtil<PlayerModel, PlayerModel> players){
+        this.boardGames = new TictactoeBoardModel(players.x, players.y);
         this.scanner = new Scanner(System.in);
-        this.display = new Display();
+        this.display = new DisplayView();
     }
 
     /** Function to get verified coords from player. Return an array of 2 integers
@@ -106,7 +106,7 @@ public class TicTacToe {
      * @param abscisse
      * @param ordonnee
      */
-    public void capture(Player player, int abscisse, int ordonnee){
+    public void capture(PlayerModel player, int abscisse, int ordonnee){
         boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
     }
 
@@ -114,7 +114,7 @@ public class TicTacToe {
      *
      */
     public void tourJoueur(){
-        Player currentPlayer = boardGames.getCurrentPlayer();
+        PlayerModel currentPlayer = boardGames.getCurrentPlayer();
         int[] coordonnees;
         display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
         if(currentPlayer.getHuman() == false){
@@ -149,14 +149,14 @@ public class TicTacToe {
      * @param row
      * @return
      */
-    public boolean checkRow(Cell[] row){
+    public boolean checkRow(CellModel[] row){
         String potentialWinner = row[0].getRepresentation();
-        for(Cell cell : row){
+        for(CellModel cell : row){
             if(cell.getRepresentation().equals("|   ")){
                 return false;
             }
         }
-        for(Cell cell: row){
+        for(CellModel cell: row){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -169,14 +169,14 @@ public class TicTacToe {
      * @param column
      * @return
      */
-    public boolean checkColumn(Cell[] column){
+    public boolean checkColumn(CellModel[] column){
         String potentialWinner = column[0].getRepresentation();
-        for(Cell cell : column){
+        for(CellModel cell : column){
             if(cell.getRepresentation().equals("|   ")){
                 return false;
             }
         }
-        for(Cell cell: column){
+        for(CellModel cell: column){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -189,14 +189,14 @@ public class TicTacToe {
      * @param DiagTopToBottom
      * @return
      */
-    public boolean checkDiagTopToBottom(Cell[] DiagTopToBottom){
+    public boolean checkDiagTopToBottom(CellModel[] DiagTopToBottom){
         String potentialWinner = DiagTopToBottom[0].getRepresentation();
-        for(Cell cell : DiagTopToBottom){
+        for(CellModel cell : DiagTopToBottom){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(Cell cell : DiagTopToBottom){
+        for(CellModel cell : DiagTopToBottom){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -209,14 +209,14 @@ public class TicTacToe {
      * @param DiagBottomToTop
      * @return
      */
-    public boolean checkDiagBottomToTop(Cell[] DiagBottomToTop){
+    public boolean checkDiagBottomToTop(CellModel[] DiagBottomToTop){
         String potentialWinner = DiagBottomToTop[0].getRepresentation();
-        for(Cell cell : DiagBottomToTop){
+        for(CellModel cell : DiagBottomToTop){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(Cell cell : DiagBottomToTop){
+        for(CellModel cell : DiagBottomToTop){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -279,7 +279,7 @@ public class TicTacToe {
         if(partieGagnee){
             display.winMessage();
         }
-        if(partieFinie){
+        if(partieFinie && !partieGagnee){
             display.drawMessage();
         }
     }
