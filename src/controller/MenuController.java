@@ -8,7 +8,7 @@ import util.TupleUtil;
 public class MenuController implements GameControllerInterface {
     Scanner scanner;
     DisplayView display = new DisplayView();
-    private int maxLimitGameComputerPlayer = 2;
+    private final int maxLimitGameComputerPlayer = 2;
     private int whichGame = -1;
     private int howManyComputers = -1;
     private int whichPosition = -1;
@@ -17,6 +17,9 @@ public class MenuController implements GameControllerInterface {
         this.scanner = new Scanner(System.in);
     }
 
+    /** Function which launches differents choices of the user (which game, how many computers and which position is the player).
+     *
+     */
     private void menuChoice(){
 
         setWhichGame();
@@ -27,6 +30,10 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
+
+    /** Function which sets which game according to the user's choice
+     *
+     */
     private void setWhichGame() {
         while(whichGame < 0 || whichGame > maxLimitGameComputerPlayer){
             display.whichGame();
@@ -41,6 +48,10 @@ public class MenuController implements GameControllerInterface {
             }
         }
     }
+
+    /** Function which sets how many computers will be used as players
+     *
+     */
     private void setHowManyComputers() {
         while(howManyComputers < 0 || howManyComputers > maxLimitGameComputerPlayer){
             display.howManyComputers();
@@ -55,6 +66,10 @@ public class MenuController implements GameControllerInterface {
             }
         }
     }
+
+    /** Function which sets the player's position
+     *
+     */
     private void setWhichPosition() {
         while(whichPosition == -1){
             display.whichPosition();
@@ -71,6 +86,12 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
+    /** TupleUtil is a function which returns 2 players (human or AI) according to the user choices
+     *
+     * @param howManyComputers
+     * @param whichPosition
+     * @return
+     */
     public TupleUtil<PlayerModel, PlayerModel> createPlayer(int howManyComputers, int whichPosition){
         PlayerModel player1 = new PlayerModel("| X ", 1);;
         PlayerModel player2 = new PlayerModel("| O ", 2);
@@ -88,6 +109,9 @@ public class MenuController implements GameControllerInterface {
         return new TupleUtil<PlayerModel, PlayerModel>(player1, player2);
     }
 
+    /** Function which creates an instance of a game according to the user's choice
+     *
+     */
     public void createGame(){
         if(whichGame == 0){
             TicTacToeController ticTacToe = new TicTacToeController(createPlayer(howManyComputers, whichPosition));
@@ -102,7 +126,11 @@ public class MenuController implements GameControllerInterface {
 //            puissance4.deroulementPartie();
         }
     }
-    public void startGame(){
+
+    /** Function which is called by the main class and launches menuChoice() and createGame().
+     *
+     */
+    public void startAGame(){
         menuChoice();
         createGame();
     }

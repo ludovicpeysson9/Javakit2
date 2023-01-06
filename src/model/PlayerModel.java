@@ -6,6 +6,12 @@ public class PlayerModel {
     private int identity;
 
     protected boolean isHuman;
+
+    /** Constructor
+     *
+     * @param representation
+     * @param identity
+     */
     public PlayerModel(String representation, int identity){
 
         this.representation = representation;
@@ -13,13 +19,26 @@ public class PlayerModel {
         this.isHuman = true;
     }
 
+    /** Function which returns representation
+     *
+     * @return
+     */
     public String getRepresentation(){
         return this.representation;
     }
+
+    /** Function which returns identity
+     *
+     * @return
+     */
     public int getIdentity(){
         return this.identity;
     }
 
+    /** Function which returns if the player is Human
+     *
+     * @return
+     */
     public boolean getHuman() {
         return isHuman;
     }

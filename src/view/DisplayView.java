@@ -18,6 +18,11 @@ public class DisplayView {
     private String howManyComputers = "Combien de joueurs controlés par l'ordinateur voulez vous? ";
 
     private String whichPosition = "Quel joueur voulez vous être? Entrez 1 pour être le Joueur 1 ou 2 pour être le Joueur 2";
+
+    /** These functions displays texts
+     *
+     * @param s
+     */
     public void display(String s){
         System.out.println(s);
     }

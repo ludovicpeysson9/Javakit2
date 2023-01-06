@@ -20,6 +20,9 @@ public class BoardGamesModel {
     PlayerModel player1;
     PlayerModel player2;
 
+    /** Constructors
+     *
+     */
     public BoardGamesModel(){
         this(3,3);
     }
@@ -116,6 +119,13 @@ public class BoardGamesModel {
             return false;
         }
     }
+
+    /** Function which returns true if the cell is empty but don't display a message (because of computer's move)
+     *
+     * @param abscisse
+     * @param ordonnee
+     * @return
+     */
     public boolean cellIsEmptyComputer(int abscisse, int ordonnee){
 
         if(plateau[abscisse][ordonnee].representation == "|   " ){

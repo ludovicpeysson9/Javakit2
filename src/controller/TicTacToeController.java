@@ -1,4 +1,4 @@
-package controller;//package controller;
+package controller;
 import model.BoardGamesModel;
 import model.CellModel;
 import model.PlayerModel;
@@ -10,8 +10,11 @@ import java.util.Scanner;
 public class TicTacToeController {
     Scanner scanner;
     BoardGamesModel boardGames;
-
     DisplayView display;
+
+    /** Constructors
+     *
+     */
     public TicTacToeController(){
         this.boardGames = new TictactoeBoardModel();
         this.scanner = new Scanner(System.in);
@@ -45,6 +48,10 @@ public class TicTacToeController {
         return new int[]{goodCoordX, goodCoordY};
      }
 
+    /** Function which returns coords from a computer
+     *
+     * @return
+     */
     public int[] getMoveFromComputer(){
         boolean available = false;
         int goodCoordX = -1;
@@ -57,6 +64,11 @@ public class TicTacToeController {
         }
         return new int[]{goodCoordX,goodCoordY};
     }
+
+    /** Function which returns random coords from a computer
+     *
+     * @return
+     */
     public int[] getCoordsOfComputer(){
         int x = (int) ((Math.random() * (3-0)) + 0);
         int y = (int) ((Math.random() * (3-0)) + 0);

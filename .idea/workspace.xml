@@ -5,23 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f131eb3-a08b-4ecb-895c-bb19dbbb57ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/AbstractGameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/GameControllerInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/InteractionUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Gomoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GomokuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Puissance4.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Puissance4Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicTacToeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ArtificialPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BoardGames.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BoardGamesModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CellModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GomokuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GomokuBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PuissanceQuatreBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PuissanceQuatreBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/TictactoeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TictactoeBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Tuple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/TupleUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DisplayView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Representation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicTacToeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/BoardGamesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BoardGamesModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/CellModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CellModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/GomokuBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GomokuBoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PlayerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PuissanceQuatreBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PuissanceQuatreBoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/TictactoeBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TictactoeBoardModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/DisplayView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DisplayView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +104,8 @@
       <workItem from="1672733232203" duration="20250000" />
       <workItem from="1672819401310" duration="21334000" />
       <workItem from="1672847687746" duration="6000" />
-      <workItem from="1672906059221" duration="13255000" />
+      <workItem from="1672906059221" duration="13258000" />
+      <workItem from="1672991863855" duration="10125000" />
     </task>
     <servers />
   </component>

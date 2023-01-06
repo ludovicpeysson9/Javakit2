@@ -3,6 +3,9 @@ package model;
 //package model;
 public class GomokuBoardModel extends BoardGamesModel {
 
+    /** Constructors
+     *
+     */
     public GomokuBoardModel(){
         super (15, 15);
     }

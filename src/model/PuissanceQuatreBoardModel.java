@@ -3,6 +3,9 @@ package model;
 //package model;
 public class PuissanceQuatreBoardModel extends BoardGamesModel {
 
+    /** Constructors
+     *
+     */
     public PuissanceQuatreBoardModel(){
         super (7, 6);
     }
