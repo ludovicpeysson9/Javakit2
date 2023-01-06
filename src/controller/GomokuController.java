@@ -26,7 +26,8 @@ public class GomokuController {
         this.display = new DisplayView();
     }
 
-    /** Function to get verified coords from player. Return an array of 2 integers
+    /**
+     *  Function to get verified coords from player. Return an array of 2 integers
      *
      * @return
      */
@@ -60,7 +61,8 @@ public class GomokuController {
         int y = (int) ((Math.random() * (15-0)) + 0);
         return new int[]{y,x};
     }
-    /** Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
+    /**
+     * Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
      *
      * @return
      */
@@ -98,7 +100,8 @@ public class GomokuController {
         return new int[]{y, x};
     }
 
-    /** Function changing a cell representation by a model.Player's one
+    /**
+     *  Function changing a cell representation by a model.Player's one
      *
      * @param player
      * @param abscisse
@@ -108,7 +111,8 @@ public class GomokuController {
         boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
     }
 
-    /** Function to define the turn of a player
+    /**
+     * Function to define the turn of a player
      *
      */
     public void tourJoueur(){
@@ -125,7 +129,8 @@ public class GomokuController {
         display.display(boardGames.getRepresentation());
     }
 
-    /** Function which returns true if the game is over
+    /**
+     *  Function which returns true if the game is over
      *
      * @param gameCounter
      * @param drawCounter
@@ -142,7 +147,8 @@ public class GomokuController {
         }
     }
 
-    /** Function to check if a row is winning. Return a boolean
+    /**
+     *  Function to check if a row is winning. Return a boolean
      *
      * @param row
      * @return
@@ -178,7 +184,8 @@ public class GomokuController {
         return false;
     }
 
-    /** Function to check if a column is winning. Return a boolean
+    /**
+     *  Function to check if a column is winning. Return a boolean
      *
      * @param column
      * @return
@@ -198,7 +205,8 @@ public class GomokuController {
         return true;
     }
 
-    /** Function to check if the diagonale from top to bottom is winning. Return a boolean
+    /**
+     * Function to check if the diagonale from top to bottom is winning. Return a boolean
      *
      * @param DiagTopToBottom
      * @return
@@ -218,7 +226,8 @@ public class GomokuController {
         return true;
     }
 
-    /** Function to check if the diagonale from bottom to top is winning. Return a boolean
+    /**
+     * Function to check if the diagonale from bottom to top is winning. Return a boolean
      *
      * @param DiagBottomToTop
      * @return
@@ -238,7 +247,8 @@ public class GomokuController {
         return true;
     }
 
-    /** Function to check if any row is winning. Return a boolean
+    /**
+     * Function to check if any row is winning. Return a boolean
      *
      * @return
      */
@@ -251,7 +261,8 @@ public class GomokuController {
         return false;
     }
 
-    /** Function to check if any column is winning. Return a boolean
+    /**
+     * Function to check if any column is winning. Return a boolean
      *
      * @return
      */
@@ -265,7 +276,8 @@ public class GomokuController {
         return res;
     }
 
-    /** Function to check the winning state. Return a boolean
+    /**
+     *  Function to check the winning state. Return a boolean
      *
      * @return
      */
@@ -276,7 +288,8 @@ public class GomokuController {
                 || (checkDiagBottomToTop(boardGames.getDiagBottomToTop()));
     }
 
-    /** Function which defines the execution of the game
+    /**
+     * Function which defines the execution of the game
      *
      */
     public void deroulementPartie(){

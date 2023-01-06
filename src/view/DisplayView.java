@@ -19,7 +19,8 @@ public class DisplayView {
 
     private String whichPosition = "Quel joueur voulez vous être? Entrez 1 pour être le Joueur 1 ou 2 pour être le Joueur 2";
 
-    /** These functions displays texts
+    /**
+     *  These functions displays texts
      *
      * @param s
      */

@@ -3,7 +3,8 @@ package model;
 //package model;
 public class TictactoeBoardModel extends BoardGamesModel {
 
-    /** Constructors
+    /**
+     * Constructors
      *
      */
     public TictactoeBoardModel() {

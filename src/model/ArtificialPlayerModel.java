@@ -2,7 +2,8 @@ package model;
 
 public class ArtificialPlayerModel extends PlayerModel {
 
-    /** Constructor
+    /**
+     * Constructor
      *
      * @param representation
      * @param identity

@@ -17,7 +17,8 @@ public class MenuController implements GameControllerInterface {
         this.scanner = new Scanner(System.in);
     }
 
-    /** Function which launches differents choices of the user (which game, how many computers and which position is the player).
+    /**
+     *  Function which launches differents choices of the user (which game, how many computers and which position is the player).
      *
      */
     private void menuChoice(){
@@ -31,7 +32,8 @@ public class MenuController implements GameControllerInterface {
     }
 
 
-    /** Function which sets which game according to the user's choice
+    /**
+     *  Function which sets which game according to the user's choice
      *
      */
     private void setWhichGame() {
@@ -49,7 +51,8 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
-    /** Function which sets how many computers will be used as players
+    /**
+     * Function which sets how many computers will be used as players
      *
      */
     private void setHowManyComputers() {
@@ -67,7 +70,8 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
-    /** Function which sets the player's position
+    /**
+     *  Function which sets the player's position
      *
      */
     private void setWhichPosition() {
@@ -86,7 +90,8 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
-    /** TupleUtil is a function which returns 2 players (human or AI) according to the user choices
+    /**
+     *  TupleUtil is a function which returns 2 players (human or AI) according to the user choices
      *
      * @param howManyComputers
      * @param whichPosition
@@ -109,7 +114,8 @@ public class MenuController implements GameControllerInterface {
         return new TupleUtil<PlayerModel, PlayerModel>(player1, player2);
     }
 
-    /** Function which creates an instance of a game according to the user's choice
+    /**
+     * Function which creates an instance of a game according to the user's choice
      *
      */
     public void createGame(){
@@ -127,7 +133,8 @@ public class MenuController implements GameControllerInterface {
         }
     }
 
-    /** Function which is called by the main class and launches menuChoice() and createGame().
+    /**
+     * Function which is called by the main class and launches menuChoice() and createGame().
      *
      */
     public void startAGame(){

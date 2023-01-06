@@ -3,7 +3,8 @@ package model;
 //package model;
 public class GomokuBoardModel extends BoardGamesModel {
 
-    /** Constructors
+    /**
+     *  Constructors
      *
      */
     public GomokuBoardModel(){

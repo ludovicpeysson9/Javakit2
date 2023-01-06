@@ -2,11 +2,12 @@ package model;
 
 //package model;
 public class CellModel {
-    
+
     protected String representation = "|   ";
 
 
-    /** Function which returns the representation of a cell
+    /**
+     *  Function which returns the representation of a cell
      *
      * @return
      */
@@ -14,7 +15,8 @@ public class CellModel {
         return representation;
     }
 
-    /** Function which sets representation the representation of the cell
+    /**
+     * Function which sets representation the representation of the cell
      *
      * @param representation
      */

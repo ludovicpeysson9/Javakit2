@@ -20,7 +20,8 @@ public class BoardGamesModel {
     PlayerModel player1;
     PlayerModel player2;
 
-    /** Constructors
+    /**
+     * Constructors
      *
      */
     public BoardGamesModel(){
@@ -51,7 +52,8 @@ public class BoardGamesModel {
         this.player2 = p2;
     }
 
-    /** Function which returns the dimensions of the board (array of 2 integers)
+    /**
+     *  Function which returns the dimensions of the board (array of 2 integers)
      *
      * @return
      */
@@ -59,7 +61,8 @@ public class BoardGamesModel {
         return new int[]{width, height};
     }
 
-    /** Function which returns the board (2D array of objects)
+    /**
+     *  Function which returns the board (2D array of objects)
      *
      * @return
      */
@@ -67,7 +70,8 @@ public class BoardGamesModel {
         return this.plateau;
     }
 
-    /** Function which manages who is the current player and return it
+    /**
+     * Function which manages who is the current player and return it
      *
      * @return
      */
@@ -81,7 +85,8 @@ public class BoardGamesModel {
         }
     }
 
-    /** Function which returns gameCounter
+    /**
+     * Function which returns gameCounter
      *
      * @return
      */
@@ -89,7 +94,8 @@ public class BoardGamesModel {
         return this.gameCounter;
     }
 
-    /** Function which returns the drawCounter
+    /**
+     * Function which returns the drawCounter
      *
      * @return
      */
@@ -97,14 +103,16 @@ public class BoardGamesModel {
         return this.drawCounter;
     }
 
-    /** Function which increments the gameCounter
+    /**
+     * Function which increments the gameCounter
      *
      */
     public void setGameCounter(){
         this.gameCounter ++;
     }
 
-    /** Function which returns true if the cell is empty
+    /**
+     * Function which returns true if the cell is empty
      *
      * @param abscisse
      * @param ordonnee
@@ -120,7 +128,8 @@ public class BoardGamesModel {
         }
     }
 
-    /** Function which returns true if the cell is empty but don't display a message (because of computer's move)
+    /**
+     * Function which returns true if the cell is empty but don't display a message (because of computer's move)
      *
      * @param abscisse
      * @param ordonnee
@@ -135,7 +144,8 @@ public class BoardGamesModel {
         }
     }
 
-    /** Function which returns the board representation
+    /**
+     * Function which returns the board representation
      *
      * @return
      */
@@ -169,7 +179,8 @@ public class BoardGamesModel {
         return repr;
     }
 
-    /** Function which returns a row (array of objects)
+    /**
+     * Function which returns a row (array of objects)
      *
      * @param rowNumber
      * @return
@@ -182,7 +193,8 @@ public class BoardGamesModel {
         return row;
     }
 
-    /** Function which returns a column (array of objects)
+    /**
+     * Function which returns a column (array of objects)
      *
      * @param columnNumber
      * @return
@@ -196,7 +208,8 @@ public class BoardGamesModel {
 
     }
 
-    /** Function which returns the diagonale from top to bottom (array of objects)
+    /**
+     * Function which returns the diagonale from top to bottom (array of objects)
      *
      * @return
      */
@@ -210,7 +223,8 @@ public class BoardGamesModel {
         return diag;
     }
 
-    /** Function which returns the diagonale from bottom to top (array of objects)
+    /**
+     * Function which returns the diagonale from bottom to top (array of objects)
      *
      * @return
      */

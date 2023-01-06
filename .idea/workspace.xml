@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f131eb3-a08b-4ecb-895c-bb19dbbb57ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/InteractionUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Representation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GomokuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GomokuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicTacToeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" afterDir="false" />
@@ -105,7 +103,7 @@
       <workItem from="1672819401310" duration="21334000" />
       <workItem from="1672847687746" duration="6000" />
       <workItem from="1672906059221" duration="13258000" />
-      <workItem from="1672991863855" duration="10125000" />
+      <workItem from="1672991863855" duration="16550000" />
     </task>
     <servers />
   </component>
@@ -128,7 +126,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/controller/GomokuController.java</url>
-          <line>289</line>
+          <line>302</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

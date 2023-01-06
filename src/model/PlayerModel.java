@@ -7,7 +7,8 @@ public class PlayerModel {
 
     protected boolean isHuman;
 
-    /** Constructor
+    /**
+     * Constructor
      *
      * @param representation
      * @param identity
@@ -19,7 +20,8 @@ public class PlayerModel {
         this.isHuman = true;
     }
 
-    /** Function which returns representation
+    /**
+     * Function which returns representation
      *
      * @return
      */
@@ -27,7 +29,8 @@ public class PlayerModel {
         return this.representation;
     }
 
-    /** Function which returns identity
+    /**
+     *  Function which returns identity
      *
      * @return
      */
@@ -35,7 +38,8 @@ public class PlayerModel {
         return this.identity;
     }
 
-    /** Function which returns if the player is Human
+    /**
+     *  Function which returns if the player is Human
      *
      * @return
      */

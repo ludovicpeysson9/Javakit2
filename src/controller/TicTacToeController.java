@@ -5,6 +5,8 @@ import model.PlayerModel;
 import model.TictactoeBoardModel;
 import view.DisplayView;
 import util.TupleUtil;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicTacToeController {
@@ -12,7 +14,10 @@ public class TicTacToeController {
     BoardGamesModel boardGames;
     DisplayView display;
 
-    /** Constructors
+//    private ArrayList<int[]> availableCoords = new ArrayList<>();
+
+    /**
+     * Constructors
      *
      */
     public TicTacToeController(){
@@ -31,7 +36,8 @@ public class TicTacToeController {
         this.display = new DisplayView();
     }
 
-    /** Function to get verified coords from player. Return an array of 2 integers
+    /**
+     * Function to get verified coords from player. Return an array of 2 integers
      *
      * @return
      */
@@ -48,7 +54,8 @@ public class TicTacToeController {
         return new int[]{goodCoordX, goodCoordY};
      }
 
-    /** Function which returns coords from a computer
+    /**
+     * Function which returns coords from a computer
      *
      * @return
      */
@@ -65,7 +72,8 @@ public class TicTacToeController {
         return new int[]{goodCoordX,goodCoordY};
     }
 
-    /** Function which returns random coords from a computer
+    /**
+     * Function which returns random coords from a computer
      *
      * @return
      */
@@ -74,7 +82,8 @@ public class TicTacToeController {
         int y = (int) ((Math.random() * (3-0)) + 0);
         return new int[]{y,x};
     }
-    /** Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
+    /**
+     * Function to get the input from a player and verify if they are within the bounds. Return an array of 2 integers.
      *
      * @return
      */
@@ -112,17 +121,33 @@ public class TicTacToeController {
         return new int[]{y, x};
     }
 
-    /** Function changing a cell representation by a model.Player's one
+    /**
+     * Function changing a cell representation by a model.Player's one
      *
      * @param player
      * @param abscisse
      * @param ordonnee
      */
     public void capture(PlayerModel player, int abscisse, int ordonnee){
+        int[] coords = {abscisse, ordonnee};
         boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
+//        availableCoords.remove((valueof(coords));
     }
 
-    /** Function to define the turn of a player
+    //TODO Modifier la facon dont l'ordinateur choisit son coup
+//    private void fillWithAvailableCoords(){
+//        for (int i = 0; i < this.boardGames.getDimensions()[0]; i++){
+//            for (int j = 0; j < this.boardGames.getDimensions()[1]; j++){
+//                int[] toAdd = new int[2];
+//                toAdd[0]=i;
+//                toAdd[1]=j;
+//                availableCoords.add(toAdd);
+//            }
+//        }
+//    }
+
+    /**
+     * Function to define the turn of a player
      *
      */
     public void tourJoueur(){
@@ -139,7 +164,8 @@ public class TicTacToeController {
         display.display(boardGames.getRepresentation());
     }
 
-    /** Function which returns true if the game is over
+    /**
+     * Function which returns true if the game is over
      *
      * @param gameCounter
      * @param drawCounter
@@ -156,7 +182,8 @@ public class TicTacToeController {
         }
     }
 
-    /** Function to check if a row is winning. Return a boolean
+    /**
+     * Function to check if a row is winning. Return a boolean
      *
      * @param row
      * @return
@@ -176,7 +203,8 @@ public class TicTacToeController {
         return true;
     }
 
-    /** Function to check if a column is winning. Return a boolean
+    /**
+     * Function to check if a column is winning. Return a boolean
      *
      * @param column
      * @return
@@ -196,7 +224,8 @@ public class TicTacToeController {
         return true;
     }
 
-    /** Function to check if the diagonale from top to bottom is winning. Return a boolean
+    /**
+     * Function to check if the diagonale from top to bottom is winning. Return a boolean
      *
      * @param DiagTopToBottom
      * @return
@@ -216,7 +245,8 @@ public class TicTacToeController {
         return true;
     }
 
-    /** Function to check if the diagonale from bottom to top is winning. Return a boolean
+    /**
+     * Function to check if the diagonale from bottom to top is winning. Return a boolean
      *
      * @param DiagBottomToTop
      * @return
@@ -236,7 +266,8 @@ public class TicTacToeController {
         return true;
     }
 
-    /** Function to check if any row is winning. Return a boolean
+    /**
+     * Function to check if any row is winning. Return a boolean
      *
      * @return
      */
@@ -249,7 +280,8 @@ public class TicTacToeController {
         return false;
     }
 
-    /** Function to check if any column is winning. Return a boolean
+    /**
+     * Function to check if any column is winning. Return a boolean
      *
      * @return
      */
@@ -263,7 +295,8 @@ public class TicTacToeController {
         return res;
     }
 
-    /** Function to check the winning state. Return a boolean
+    /**
+     * Function to check the winning state. Return a boolean
      *
      * @return
      */
@@ -274,7 +307,8 @@ public class TicTacToeController {
                 || (checkDiagBottomToTop(boardGames.getDiagBottomToTop()));
     }
 
-    /** Function which defines the execution of the game
+    /**
+     * Function which defines the execution of the game
      *
      */
     public void deroulementPartie(){
