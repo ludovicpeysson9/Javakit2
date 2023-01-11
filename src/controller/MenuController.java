@@ -1,15 +1,16 @@
 package controller;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 import view.DisplayView;
 import model.PlayerModel;
 import model.ArtificialPlayerModel;
 import util.TupleUtil;
 
-public class MenuController implements GameControllerInterface {
+public class MenuController{
     Scanner scanner;
     DisplayView display = new DisplayView();
     private final int maxLimitGameComputerPlayer = 2;
-    private int whichGame = -1;
+    private Class whichGame;
     private int howManyComputers = -1;
     private int whichPosition = -1;
 
@@ -37,17 +38,29 @@ public class MenuController implements GameControllerInterface {
      *
      */
     private void setWhichGame() {
-        while(whichGame < 0 || whichGame > maxLimitGameComputerPlayer){
+        int whichGameInt = -1;
+        while(whichGameInt < 0 || whichGameInt > maxLimitGameComputerPlayer){
             display.whichGame();
             if(scanner.hasNextInt()){
-                this.whichGame = scanner.nextInt();
+                whichGameInt = scanner.nextInt();
             } else {
                 display.errorEntier();
                 scanner.next();
             }
-            if (whichGame != -1 && (whichGame < 0 || whichGame > 3)){
+            if (whichGameInt != -1 && (whichGameInt < 0 || whichGameInt > 3)){
                 display.errorOutOfBounds(maxLimitGameComputerPlayer);
             }
+        }
+        switch (whichGameInt){
+            case 0:
+                whichGame = TicTacToeController.class;
+                break;
+            case 1:
+                whichGame = GomokuController.class;
+                break;
+            case 2:
+                whichGame = Puissance4Controller.class;
+                break;
         }
     }
 
@@ -118,9 +131,10 @@ public class MenuController implements GameControllerInterface {
      * Function which creates an instance of a game according to the user's choice
      *
      */
-    public void createGame(){
-        if(whichGame == 0){
-            TicTacToeController ticTacToe = new TicTacToeController(createPlayer(howManyComputers, whichPosition));
+    public GameController createGame(){
+/*        if(whichGame == 0){
+//            TicTacToeController ticTacToe = new TicTacToeController(createPlayer(howManyComputers, whichPosition));
+            TicTacToeController ticTacToe = GameFactory.createGame(TicTacToeController.class, createPlayer(howManyComputers, whichPosition));
             ticTacToe.deroulementPartie();
         }
         if(whichGame == 1){
@@ -130,7 +144,14 @@ public class MenuController implements GameControllerInterface {
         if(whichGame == 2){
             Puissance4Controller puissance4 = new Puissance4Controller(createPlayer(howManyComputers, whichPosition));
 //            puissance4.deroulementPartie();
+        }*/
+        try{
+            return GameFactory.createGame(whichGame,createPlayer(howManyComputers, whichPosition));
         }
+        catch (Exception e){
+            System.err.println(e + e.getStackTrace().toString());
+        }
+        return null;
     }
 
     /**
@@ -139,7 +160,8 @@ public class MenuController implements GameControllerInterface {
      */
     public void startAGame(){
         menuChoice();
-        createGame();
+        GameController gameController = this.createGame();
+        gameController.deroulementPartie();
     }
 
 }

@@ -6,7 +6,7 @@ import model.CellModel;
 import view.DisplayView;
 import util.TupleUtil;
 import java.util.Scanner;
-public class GomokuController {
+public class GomokuController implements GameController{
     Scanner scanner;
     BoardGamesModel boardGames;
     DisplayView display;

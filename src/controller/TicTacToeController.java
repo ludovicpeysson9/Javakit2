@@ -9,7 +9,7 @@ import util.TupleUtil;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class TicTacToeController {
+public class TicTacToeController implements GameController{
     Scanner scanner;
     BoardGamesModel boardGames;
     DisplayView display;

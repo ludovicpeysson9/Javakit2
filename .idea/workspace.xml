@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f131eb3-a08b-4ecb-895c-bb19dbbb57ef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/GameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameControllerInterface.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GomokuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GomokuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Puissance4Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Puissance4Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/TicTacToeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ArtificialPlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/BoardGamesModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/BoardGamesModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/CellModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/CellModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/GomokuBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/GomokuBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PlayerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PlayerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/PuissanceQuatreBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PuissanceQuatreBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/TictactoeBoardModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TictactoeBoardModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/DisplayView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/DisplayView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,18 +46,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ludovic.peysson/projets/Javakit1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ludo/Documents/Javakit2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="controller" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="controller" />
     </key>
@@ -104,6 +105,8 @@
       <workItem from="1672847687746" duration="6000" />
       <workItem from="1672906059221" duration="13258000" />
       <workItem from="1672991863855" duration="16550000" />
+      <workItem from="1673437608012" duration="114000" />
+      <workItem from="1673437730611" duration="2295000" />
     </task>
     <servers />
   </component>

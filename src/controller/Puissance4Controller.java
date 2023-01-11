@@ -5,7 +5,7 @@ import model.PuissanceQuatreBoardModel;
 import view.DisplayView;
 import util.TupleUtil;
 import java.util.Scanner;
-public class Puissance4Controller {
+public class Puissance4Controller implements GameController{
     Scanner scanner;
     BoardGamesModel boardGames;
     DisplayView display;
@@ -27,6 +27,11 @@ public class Puissance4Controller {
 
     public void displayp4(){
         display.display(boardGames.getRepresentation());
+    }
+
+    @Override
+    public void deroulementPartie() {
+
     }
 //    /** Function to get verified coords from player. Return an array of 2 integers
 //     *
