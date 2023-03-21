@@ -6,7 +6,6 @@ import model.TictactoeBoardModel;
 import view.DisplayView;
 import util.TupleUtil;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicTacToeController implements GameController{
@@ -14,7 +13,6 @@ public class TicTacToeController implements GameController{
     BoardGamesModel boardGames;
     DisplayView display;
 
-//    private ArrayList<int[]> availableCoords = new ArrayList<>();
 
     /**
      * Constructors
@@ -41,7 +39,7 @@ public class TicTacToeController implements GameController{
      *
      * @return
      */
-    public int[] getMoveFromPlayer(){
+    private int[] getMoveFromPlayer(){
         boolean available = false;
         int goodCoordX =-1;
         int goodCoordY = -1;
@@ -59,7 +57,7 @@ public class TicTacToeController implements GameController{
      *
      * @return
      */
-    public int[] getMoveFromComputer(){
+    private int[] getMoveFromComputer(){
         boolean available = false;
         int goodCoordX = -1;
         int goodCoordY = -1;
@@ -77,7 +75,7 @@ public class TicTacToeController implements GameController{
      *
      * @return
      */
-    public int[] getCoordsOfComputer(){
+    private int[] getCoordsOfComputer(){
         int x = (int) ((Math.random() * (3-0)) + 0);
         int y = (int) ((Math.random() * (3-0)) + 0);
         return new int[]{y,x};
@@ -87,18 +85,18 @@ public class TicTacToeController implements GameController{
      *
      * @return
      */
-    public int[] getCoordsWithinBounds() {
+    private int[] getCoordsWithinBounds() {
         int x = -1;
         int y = -1;
         int tailleMaxAbscisse = boardGames.getDimensions()[0] - 1;
         int tailleMaxOrdonnee = boardGames.getDimensions()[1] - 1;
 
         while (x < 0 || x > tailleMaxAbscisse) {
-            display.instructionAbscisse(tailleMaxAbscisse);
+            display.instructionXAxis(tailleMaxAbscisse);
             if (scanner.hasNextInt()) {
                 x = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if(x != -1 && (x < 0 || x > tailleMaxAbscisse)){
@@ -106,12 +104,12 @@ public class TicTacToeController implements GameController{
             }
         }
         while (y < 0 || y > tailleMaxOrdonnee) {
-            display.instructionOrdonnee(tailleMaxOrdonnee);
+            display.instructionYAxis(tailleMaxOrdonnee);
 
             if (scanner.hasNextInt()) {
                 y = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if(y != -1 && (y < 0 || y > tailleMaxOrdonnee)){
@@ -128,39 +126,25 @@ public class TicTacToeController implements GameController{
      * @param abscisse
      * @param ordonnee
      */
-    public void capture(PlayerModel player, int abscisse, int ordonnee){
-        int[] coords = {abscisse, ordonnee};
+    private void capture(PlayerModel player, int abscisse, int ordonnee){
         boardGames.getPlateau()[abscisse][ordonnee].setRepresentation(player.getRepresentation());
-//        availableCoords.remove((valueof(coords));
     }
-
-    //TODO Modifier la facon dont l'ordinateur choisit son coup
-//    private void fillWithAvailableCoords(){
-//        for (int i = 0; i < this.boardGames.getDimensions()[0]; i++){
-//            for (int j = 0; j < this.boardGames.getDimensions()[1]; j++){
-//                int[] toAdd = new int[2];
-//                toAdd[0]=i;
-//                toAdd[1]=j;
-//                availableCoords.add(toAdd);
-//            }
-//        }
-//    }
 
     /**
      * Function to define the turn of a player
      *
      */
-    public void tourJoueur(){
+    private void turn(){
         PlayerModel currentPlayer = boardGames.getCurrentPlayer();
         int[] coordonnees;
         display.display("Joueur " + currentPlayer.getIdentity() + " à toi de jouer !");
-        if(currentPlayer.getHuman() == false){
+        if(!currentPlayer.getHuman()){
             coordonnees = getMoveFromComputer();
         }else{
             coordonnees = getMoveFromPlayer();
         }
         capture(currentPlayer, coordonnees[0], coordonnees[1]);
-
+        boardGames.nextPlayer();
         display.display(boardGames.getRepresentation());
     }
 
@@ -171,11 +155,11 @@ public class TicTacToeController implements GameController{
      * @param drawCounter
      * @return
      */
-    public boolean isOver(int gameCounter, int drawCounter){ // Prend en paramètre une variable qui determinera si le jeu est fini un booleen
+    private boolean isOver(int gameCounter, int drawCounter){
         drawCounter = boardGames.getDrawCounter();
         gameCounter = boardGames.getGameCounter();
         if(gameCounter < drawCounter){
-            boardGames.setGameCounter();
+            boardGames.incrementGameCounter();
             return false;
         } else {
             return true;
@@ -188,7 +172,7 @@ public class TicTacToeController implements GameController{
      * @param row
      * @return
      */
-    public boolean checkRow(CellModel[] row){
+    private boolean checkRow(CellModel[] row){
         String potentialWinner = row[0].getRepresentation();
         for(CellModel cell : row){
             if(cell.getRepresentation().equals("|   ")){
@@ -209,7 +193,7 @@ public class TicTacToeController implements GameController{
      * @param column
      * @return
      */
-    public boolean checkColumn(CellModel[] column){
+    private boolean checkColumn(CellModel[] column){
         String potentialWinner = column[0].getRepresentation();
         for(CellModel cell : column){
             if(cell.getRepresentation().equals("|   ")){
@@ -227,17 +211,17 @@ public class TicTacToeController implements GameController{
     /**
      * Function to check if the diagonale from top to bottom is winning. Return a boolean
      *
-     * @param DiagTopToBottom
+     * @param diagTopToBottom
      * @return
      */
-    public boolean checkDiagTopToBottom(CellModel[] DiagTopToBottom){
-        String potentialWinner = DiagTopToBottom[0].getRepresentation();
-        for(CellModel cell : DiagTopToBottom){
+    private boolean checkDiagTopToBottom(CellModel[] diagTopToBottom){
+        String potentialWinner = diagTopToBottom[0].getRepresentation();
+        for(CellModel cell : diagTopToBottom){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(CellModel cell : DiagTopToBottom){
+        for(CellModel cell : diagTopToBottom){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -248,17 +232,17 @@ public class TicTacToeController implements GameController{
     /**
      * Function to check if the diagonale from bottom to top is winning. Return a boolean
      *
-     * @param DiagBottomToTop
+     * @param diagBottomToTop
      * @return
      */
-    public boolean checkDiagBottomToTop(CellModel[] DiagBottomToTop){
-        String potentialWinner = DiagBottomToTop[0].getRepresentation();
-        for(CellModel cell : DiagBottomToTop){
+    private boolean checkDiagBottomToTop(CellModel[] diagBottomToTop){
+        String potentialWinner = diagBottomToTop[0].getRepresentation();
+        for(CellModel cell : diagBottomToTop){
             if(cell.getRepresentation() == "|   "){
                 return false;
             }
         }
-        for(CellModel cell : DiagBottomToTop){
+        for(CellModel cell : diagBottomToTop){
             if(potentialWinner != cell.getRepresentation()){
                 return false;
             }
@@ -300,7 +284,7 @@ public class TicTacToeController implements GameController{
      *
      * @return
      */
-    public boolean isWinning(){
+    private boolean isWinning(){
         return (isAnyRowWinning())
                 || (isAnyColumnWinning())
                 || (checkDiagTopToBottom(boardGames.getDiagTopToBottom()))
@@ -311,19 +295,20 @@ public class TicTacToeController implements GameController{
      * Function which defines the execution of the game
      *
      */
-    public void deroulementPartie(){
+    public void runOfTheGame(){
         boolean partieFinie = isOver(boardGames.getGameCounter(), boardGames.getDrawCounter());
         boolean partieGagnee = isWinning();
 
         display.display(boardGames.getRepresentation());
 
         while(!partieFinie && !partieGagnee){
-            tourJoueur();
+            turn();
             partieGagnee = isWinning();
             partieFinie = isOver(boardGames.getGameCounter(), boardGames.getDrawCounter());
         }
         if(partieGagnee){
-            display.winMessage();
+            boardGames.nextPlayer();
+            display.winMessage(boardGames.getCurrentPlayer());
         }
         if(partieFinie && !partieGagnee){
             display.drawMessage();

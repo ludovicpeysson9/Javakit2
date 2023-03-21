@@ -73,11 +73,11 @@ public class GomokuController implements GameController{
         int tailleMaxOrdonnee = boardGames.getDimensions()[1] - 1;
 
         while (x < 0 || x > tailleMaxAbscisse) {
-            display.instructionAbscisse(tailleMaxAbscisse);
+            display.instructionXAxis(tailleMaxAbscisse);
             if (scanner.hasNextInt()) {
                 x = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if(x != -1 && (x < 0 || x > tailleMaxAbscisse)){
@@ -85,12 +85,12 @@ public class GomokuController implements GameController{
             }
         }
         while (y < 0 || y > tailleMaxOrdonnee) {
-            display.instructionOrdonnee(tailleMaxOrdonnee);
+            display.instructionYAxis(tailleMaxOrdonnee);
 
             if (scanner.hasNextInt()) {
                 y = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if(y != -1 && (y < 0 || y > tailleMaxOrdonnee)){
@@ -140,7 +140,7 @@ public class GomokuController implements GameController{
         drawCounter = boardGames.getDrawCounter();
         gameCounter = boardGames.getGameCounter();
         if(gameCounter < drawCounter){
-            boardGames.setGameCounter();
+            boardGames.incrementGameCounter();
             return false;
         } else {
             return true;
@@ -292,7 +292,7 @@ public class GomokuController implements GameController{
      * Function which defines the execution of the game
      *
      */
-    public void deroulementPartie(){
+    public void runOfTheGame(){
         boolean partieFinie = isOver(boardGames.getGameCounter(), boardGames.getDrawCounter());
         boolean partieGagnee = isWinning();
 
@@ -304,7 +304,7 @@ public class GomokuController implements GameController{
             partieFinie = isOver(boardGames.getGameCounter(), boardGames.getDrawCounter());
         }
         if(partieGagnee){
-            display.winMessage();
+            display.winMessage(boardGames.getCurrentPlayer());
         }
         if(partieFinie && !partieGagnee){
             display.drawMessage();

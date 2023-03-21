@@ -30,7 +30,7 @@ public class Puissance4Controller implements GameController{
     }
 
     @Override
-    public void deroulementPartie() {
+    public void runOfTheGame() {
 
     }
 //    /** Function to get verified coords from player. Return an array of 2 integers

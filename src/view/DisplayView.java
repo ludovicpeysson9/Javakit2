@@ -1,15 +1,17 @@
 package view;//package view;
 
+import model.PlayerModel;
+
 public class DisplayView {
     //TODO Faire en sorte que la view gère toutes les interactions avec l'utilisateur (scanner) mais pas la logique.
-    private String instructionAbscisse = "Entrez l'abscisse de la case libre ciblée sous forme d'entier entre 0 et ";
+    private String instructionXAxis = "Entrez l'abscisse de la case libre ciblée sous forme d'entier entre 0 et ";
 
-    private String instructionOrdonnee = "Entrez l'ordonnée de la case libre ciblée sous forme d'entier entre 0 et ";
+    private String instructionYAxis = "Entrez l'ordonnée de la case libre ciblée sous forme d'entier entre 0 et ";
 
-    private String errorEntier = "RENSEIGNEZ UN ENTIER!";
+    private String errorInteger = "RENSEIGNEZ UN ENTIER!";
 
     private String errorOutOfBounds = "ON A DIT ENTRE 0 ET ";
-    private String winMessage = "Bien joué vous avez gagné! ";
+    private String winMessage = "Bien joué vous avez gagné Player";
     private String drawMessage = "Match Nul! ";
 
     private String notEmptyMessage = "Cette case est déjà prise! Rejouez mais pas en ";
@@ -20,7 +22,7 @@ public class DisplayView {
     private String whichPosition = "Quel joueur voulez vous être? Entrez 1 pour être le Joueur 1 ou 2 pour être le Joueur 2";
 
     /**
-     *  These functions displays texts
+     *  These functions display texts
      *
      * @param s
      */
@@ -28,23 +30,23 @@ public class DisplayView {
         System.out.println(s);
     }
 
-    public void instructionAbscisse(int tailleMaxAbscisse){
-        System.out.println((this.instructionAbscisse + tailleMaxAbscisse));
+    public void instructionXAxis(int xAxisMaxSize){
+        System.out.println((this.instructionXAxis + xAxisMaxSize));
     }
 
-    public void instructionOrdonnee(int tailleMaxOrdonnee){
-        System.out.println(this.instructionOrdonnee + tailleMaxOrdonnee);;
+    public void instructionYAxis(int yAxisMaxSize){
+        System.out.println(this.instructionYAxis + yAxisMaxSize);;
     }
-    public void errorEntier(){
-        System.out.println(errorEntier);
+    public void errorInteger(){
+        System.out.println(errorInteger);
     }
 
     public void errorOutOfBounds(int tailleMax){
         System.out.println(errorOutOfBounds + tailleMax + "!!!");
     }
 
-    public void winMessage(){
-        System.out.println(this.winMessage);
+    public void winMessage(PlayerModel currentPlayer){
+        System.out.println(this.winMessage + currentPlayer.getIdentity());
     }
     public void drawMessage(){
         System.out.println(this.drawMessage);

@@ -1,5 +1,4 @@
 package controller;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 import view.DisplayView;
 import model.PlayerModel;
@@ -44,7 +43,7 @@ public class MenuController{
             if(scanner.hasNextInt()){
                 whichGameInt = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if (whichGameInt != -1 && (whichGameInt < 0 || whichGameInt > 3)){
@@ -74,7 +73,7 @@ public class MenuController{
             if(scanner.hasNextInt()){
                 this.howManyComputers = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if(howManyComputers != -1 && (howManyComputers < 0 || howManyComputers > maxLimitGameComputerPlayer)){
@@ -93,7 +92,7 @@ public class MenuController{
             if (scanner.hasNextInt()){
                 this.whichPosition = scanner.nextInt();
             } else {
-                display.errorEntier();
+                display.errorInteger();
                 scanner.next();
             }
             if (whichPosition != -1 && (whichPosition < 0 || whichPosition > maxLimitGameComputerPlayer)){
@@ -111,20 +110,30 @@ public class MenuController{
      * @return
      */
     public TupleUtil<PlayerModel, PlayerModel> createPlayer(int howManyComputers, int whichPosition){
-        PlayerModel player1 = new PlayerModel("| X ", 1);;
-        PlayerModel player2 = new PlayerModel("| O ", 2);
+        PlayerModel player1;
+        PlayerModel player2;
+
         if(howManyComputers >= 2){
             player1 = new ArtificialPlayerModel( "| X ", 1);
             player2 = new ArtificialPlayerModel("| O ", 2);
+            return new TupleUtil<> (player1, player2);
         }
+
         if(howManyComputers == 1){
             if(whichPosition == 1){
+                player1 = new PlayerModel("| X ", 1);
                 player2 = new ArtificialPlayerModel( "| O ", 2);
-            }else if (whichPosition == 2){
+            }else {
                 player1 = new ArtificialPlayerModel( "| X ", 1);
+                player2 = new PlayerModel("| O ", 2);
             }
+            return new TupleUtil<> (player1, player2);
         }
-        return new TupleUtil<PlayerModel, PlayerModel>(player1, player2);
+
+        player1 = new PlayerModel("| X ", 1);
+        player2 = new PlayerModel("| O ", 2);
+
+        return new TupleUtil<> (player1, player2);
     }
 
     /**
@@ -161,7 +170,7 @@ public class MenuController{
     public void startAGame(){
         menuChoice();
         GameController gameController = this.createGame();
-        gameController.deroulementPartie();
+        gameController.runOfTheGame();
     }
 
 }

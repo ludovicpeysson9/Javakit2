@@ -77,11 +77,16 @@ public class BoardGamesModel {
      */
     public PlayerModel getCurrentPlayer(){
         if(currentPlayerId == 1){
-            currentPlayerId ++;
             return player1;
         }else{
-            currentPlayerId --;
             return player2;
+        }
+    }
+    public void nextPlayer(){
+        if(currentPlayerId == 1){
+            currentPlayerId ++;
+        }else{
+            currentPlayerId --;
         }
     }
 
@@ -107,7 +112,7 @@ public class BoardGamesModel {
      * Function which increments the gameCounter
      *
      */
-    public void setGameCounter(){
+    public void incrementGameCounter(){
         this.gameCounter ++;
     }
 
