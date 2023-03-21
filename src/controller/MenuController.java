@@ -118,12 +118,11 @@ public class MenuController{
             player2 = new ArtificialPlayerModel("| O ", 2);
             return new TupleUtil<> (player1, player2);
         }
-
         if(howManyComputers == 1){
             if(whichPosition == 1){
                 player1 = new PlayerModel("| X ", 1);
                 player2 = new ArtificialPlayerModel( "| O ", 2);
-            }else {
+            }else{
                 player1 = new ArtificialPlayerModel( "| X ", 1);
                 player2 = new PlayerModel("| O ", 2);
             }
@@ -155,7 +154,7 @@ public class MenuController{
 //            puissance4.deroulementPartie();
         }*/
         try{
-            return GameFactory.createGame(whichGame,createPlayer(howManyComputers, whichPosition));
+            return GameFactory.createGame(whichGame, createPlayer(howManyComputers, whichPosition));
         }
         catch (Exception e){
             System.err.println(e + e.getStackTrace().toString());
